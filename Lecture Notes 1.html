@@ -403,6 +403,7 @@ $ bash Downloads/Miniconda3-latest-Linux-x86_64.sh
 <section id="windows">
 <h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">#</a></h3>
 <p>For windows the installer is an executable <a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py310_23.1.0-1-Windows-x86_64.exe">Miniconda3-py310_23.1.0-1-Windows-x86_64.exe</a>, which <em>should</em> install nicely by clicking on it</p>
+<p>Windows miniconda provides a command-line interface called “Anaconda prompt” which is the same as the classical Windows CMD program, but initialized for Python.</p>
 </section>
 </section>
 <section id="conda-environments">
@@ -427,7 +428,8 @@ You see this as a modified terminal prompt that starts with</p>
 </div>
 <p>Conda environments are used to isolate projects with software dependencies from each other keeping all related files in unique folders.</p>
 <p>The extra libraries we need for this course are defined in the file <code class="docutils literal notranslate"><span class="pre">bb1000.yml</span></code>. The command</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ conda create env -f bb1000.yml
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ conda create env -f Downloads/bb1000.yml #max/linux
+C:&gt; conda create env -f Downloads\bb1000.yml #windows
 </pre></div>
 </div>
 <p>will create a new conda environment with the name bb1000 and install the  libraries for this course.
@@ -505,7 +507,7 @@ A screencast of this is in  <a class="reference external" href="https://asciinem
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/65c2cff643d0bfda48f28bed8c2e83fcb531fe15c5e02435f3e96f3973d7047a.png" src="_images/65c2cff643d0bfda48f28bed8c2e83fcb531fe15c5e02435f3e96f3973d7047a.png" />
+<img alt="_images/8685415bc0cec08f0ff96b5a5a6638ee816e6d9e087f12e13ca279f65450b197.png" src="_images/8685415bc0cec08f0ff96b5a5a6638ee816e6d9e087f12e13ca279f65450b197.png" />
 </div>
 </div>
 </section>
