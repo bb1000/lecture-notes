@@ -1,0 +1,10 @@
+name: bb1000
+channels:
+  - defaults
+dependencies:
+  - jupyter
+  - matplotlib
+  - numpy
+  - pandas
+  - pytest
+  - git
