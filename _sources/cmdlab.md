@@ -16,8 +16,9 @@ under your home folder, which has following structure
 ~~~
 
 Inside each text files put:
-a) first line: path to file
-b) second line: name of file
+
+* first line: the full path to the folder containing the current file
+* second line: name of file
 
 ## B
 
@@ -31,4 +32,6 @@ Using the command-line commands for renaming/copying to modify the folder tree c
     │   └── introduction.txt
     └── SecondFolder
         └── Readme.txt
+
 ~~~
+Also modify the content of the files to match their new location
