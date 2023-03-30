@@ -5,3 +5,5 @@ format: jb-book
 root: intro
 chapters:
 - file: Lecture Notes 1
+- file: Lecture Notes 2
+- file: cmdlab.md
