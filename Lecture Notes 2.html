@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Command line basics &#8212; Python lecture notes</title>
+    <title>Lecture notes 2 &#8212; Python lecture notes</title>
   
   
   
@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Lab:Command-line exercise" href="cmdlab.html" />
-    <link rel="prev" title="Installing" href="Lecture%20Notes%201.html" />
+    <link rel="prev" title="Lecture notes 1" href="Lecture%20Notes%201.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -156,11 +156,13 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%201.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%201.html">Lecture notes 1</a></li>
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Command line basics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture notes 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cmdlab.html">Lab:Command-line exercise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="solutions.html">Lab: Command-line solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%203.html">Lecture notes 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%204.html">Lecture notes 4</a></li>
 </ul>
 
     </div>
@@ -344,7 +346,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Command line basics</h1>
+    <h1>Lecture notes 2</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -354,36 +356,39 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help-documentation">Getting help/documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mac-linux">Mac/Linux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-basics">Command line basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help-documentation">Getting help/documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mac-linux">Mac/Linux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pwd">pwd</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cd">cd</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ls-dir">ls/dir</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mkdir">mkdir</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">mac/linux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pwd">pwd</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cd">cd</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ls-dir">ls/dir</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mkdir">mkdir</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">mac/linux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">windows</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rmdir">rmdir</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">mac/linux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">windows</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">mac/linux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rmdir">rmdir</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">mac/linux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">mac/linux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">windows</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files">Copying files</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Mac/Linux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Windows</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Mac/Linux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">WIndows</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Mac/Linux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files">Copying files</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Mac/Linux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Mac/Linux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">WIndows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Mac/Linux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Windows</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table">Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table">Table</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -395,8 +400,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="command-line-basics">
-<h1>Command line basics<a class="headerlink" href="#command-line-basics" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-notes-2">
+<h1>Lecture notes 2<a class="headerlink" href="#lecture-notes-2" title="Permalink to this headline">#</a></h1>
+<section id="command-line-basics">
+<h2>Command line basics<a class="headerlink" href="#command-line-basics" title="Permalink to this headline">#</a></h2>
 <p><em>In the examples below we use <code class="docutils literal notranslate"><span class="pre">$</span></code> for a bash prompt (Mac/Linux) and <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> for a Windows CMD prompt. You do not type these yourself, they are printed to the screen by the computer as signal that it is waitin for input</em></p>
 <p>Go to  <a class="reference external" href="https://swcarpentry.github.io/shell-novice/">https://swcarpentry.github.io/shell-novice/</a></p>
 <p>This represents workshop material for learning about the bash shell.</p>
@@ -409,24 +416,24 @@ document.write(`
 </pre></div>
 </div>
 <section id="getting-help-documentation">
-<h2>Getting help/documentation<a class="headerlink" href="#getting-help-documentation" title="Permalink to this headline">#</a></h2>
+<h3>Getting help/documentation<a class="headerlink" href="#getting-help-documentation" title="Permalink to this headline">#</a></h3>
 <p>Many programs in bash have documentation saved in man pages. Others have it built-in with an option like <code class="docutils literal notranslate"><span class="pre">-h</span></code> or <code class="docutils literal notranslate"><span class="pre">--help</span></code></p>
 <section id="mac-linux">
-<h3>Mac/Linux<a class="headerlink" href="#mac-linux" title="Permalink to this headline">#</a></h3>
+<h4>Mac/Linux<a class="headerlink" href="#mac-linux" title="Permalink to this headline">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ man ls
 $ ls --help
 </pre></div>
 </div>
 </section>
 <section id="windows">
-<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">#</a></h3>
+<h4>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; dir /?
 </pre></div>
 </div>
 </section>
 </section>
 <section id="pwd">
-<h2>pwd<a class="headerlink" href="#pwd" title="Permalink to this headline">#</a></h2>
+<h3>pwd<a class="headerlink" href="#pwd" title="Permalink to this headline">#</a></h3>
 <p>In the command line we have the concept of active folder, or “where am I?”. pwd displays the current folder on the screen. It is common these days that computers have by default this folder as a part of the terminal prompt.
 For bash it can be redefined to your liking by modifying the PS1 shell environment variable</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ PS1=&quot;What do you want? &quot;
@@ -435,7 +442,7 @@ What du you want? █
 </div>
 </section>
 <section id="cd">
-<h2>cd<a class="headerlink" href="#cd" title="Permalink to this headline">#</a></h2>
+<h3>cd<a class="headerlink" href="#cd" title="Permalink to this headline">#</a></h3>
 <p>To move around in the file system we use the cd command for change directory. When you provide an argument
 it can either be the full path of a folder or relative path. The full path starts with the root <code class="docutils literal notranslate"><span class="pre">/</span></code> on mac/linux and a drive letter in windows <code class="docutils literal notranslate"><span class="pre">C:</span></code> in windows</p>
 <p>To take me to the home folder for user jane something like this would be appropriate</p>
@@ -459,7 +466,7 @@ it can either be the full path of a folder or relative path. The full path start
 </div>
 </section>
 <section id="ls-dir">
-<h2>ls/dir<a class="headerlink" href="#ls-dir" title="Permalink to this headline">#</a></h2>
+<h3>ls/dir<a class="headerlink" href="#ls-dir" title="Permalink to this headline">#</a></h3>
 <p>List the files in current or other folder</p>
 <p>examples</p>
 <p>list files in current folder</p>
@@ -480,10 +487,10 @@ it can either be the full path of a folder or relative path. The full path start
 </div>
 </section>
 <section id="mkdir">
-<h2>mkdir<a class="headerlink" href="#mkdir" title="Permalink to this headline">#</a></h2>
+<h3>mkdir<a class="headerlink" href="#mkdir" title="Permalink to this headline">#</a></h3>
 <p>create new direcory (folder). Usage</p>
 <section id="id1">
-<h3>mac/linux<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h4>mac/linux<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir newfolder
 $ mkdir -p a/b/c
 </pre></div>
@@ -491,7 +498,7 @@ $ mkdir -p a/b/c
 <p>to create several subfolders at once the <code class="docutils literal notranslate"><span class="pre">-p</span></code> option is needed</p>
 </section>
 <section id="id2">
-<h3>windows<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<h4>windows<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">mkdir</span> <span class="n">newfolder</span>
 <span class="o">&gt;</span> <span class="n">mkdir</span> <span class="n">a</span>\<span class="n">b</span>\<span class="n">c</span>
 </pre></div>
@@ -499,78 +506,78 @@ $ mkdir -p a/b/c
 </section>
 </section>
 <section id="rmdir">
-<h2>rmdir<a class="headerlink" href="#rmdir" title="Permalink to this headline">#</a></h2>
+<h3>rmdir<a class="headerlink" href="#rmdir" title="Permalink to this headline">#</a></h3>
 <p>To delete an empty folder</p>
 <section id="id3">
-<h3>mac/linux<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<h4>mac/linux<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rmdir emptyfolder
 </pre></div>
 </div>
 </section>
 <section id="id4">
-<h3>windows<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<h4>windows<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">rmdir</span> <span class="n">emptyfolder</span>
 </pre></div>
 </div>
 <p>To delete an non-empty folder (a direcory tree)</p>
 </section>
 <section id="id5">
-<h3>mac/linux<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<h4>mac/linux<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ rm -r folder_with_content
 </pre></div>
 </div>
 </section>
 <section id="id6">
-<h3>windows<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<h4>windows<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">rmdir</span> <span class="o">/</span><span class="n">s</span> <span class="n">folder_with_content</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="copying-files">
-<h2>Copying files<a class="headerlink" href="#copying-files" title="Permalink to this headline">#</a></h2>
+<h3>Copying files<a class="headerlink" href="#copying-files" title="Permalink to this headline">#</a></h3>
 <p>Create a duplicate of a  with a new name</p>
 <section id="id7">
-<h3>Mac/Linux<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<h4>Mac/Linux<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp  oldfile newcopy 
 </pre></div>
 </div>
 </section>
 <section id="id8">
-<h3>Windows<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<h4>Windows<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">copy</span> <span class="n">oldfile</span> <span class="n">newcopy</span>
 </pre></div>
 </div>
 <p>Copy an existing file to a new location  - an existing folder</p>
 </section>
 <section id="id9">
-<h3>Mac/Linux<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<h4>Mac/Linux<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp oldfile otherlocation/
 </pre></div>
 </div>
 </section>
 <section id="id10">
-<h3>WIndows<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<h4>WIndows<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">copy</span> <span class="n">oldfile</span> <span class="n">otherlocation</span>\
 </pre></div>
 </div>
 <p>Copy a whole directory (backup)</p>
 </section>
 <section id="id11">
-<h3>Mac/Linux<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<h4>Mac/Linux<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cp -r oldfolder backupfolder
 </pre></div>
 </div>
 </section>
 <section id="id12">
-<h3>Windows<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<h4>Windows<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h4>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">xcopy</span> <span class="n">oldfolder</span> <span class="n">backupfolder</span>\
 </pre></div>
 </div>
 </section>
 </section>
 <section id="table">
-<h2>Table<a class="headerlink" href="#table" title="Permalink to this headline">#</a></h2>
+<h3>Table<a class="headerlink" href="#table" title="Permalink to this headline">#</a></h3>
 <p>Table with equivalent linux/windows commands</p>
 <table class="colwidths-auto table">
 <thead>
@@ -632,6 +639,7 @@ $ mkdir -p a/b/c
 </table>
 </section>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -667,7 +675,7 @@ $ mkdir -p a/b/c
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Installing</p>
+        <p class="prev-next-title">Lecture notes 1</p>
       </div>
     </a>
     <a class="right-next"
@@ -694,36 +702,39 @@ $ mkdir -p a/b/c
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help-documentation">Getting help/documentation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mac-linux">Mac/Linux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-basics">Command line basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help-documentation">Getting help/documentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mac-linux">Mac/Linux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pwd">pwd</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cd">cd</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ls-dir">ls/dir</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mkdir">mkdir</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">mac/linux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pwd">pwd</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cd">cd</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ls-dir">ls/dir</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mkdir">mkdir</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">mac/linux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">windows</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rmdir">rmdir</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">mac/linux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">windows</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">mac/linux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rmdir">rmdir</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">mac/linux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">mac/linux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">windows</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files">Copying files</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Mac/Linux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Windows</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Mac/Linux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">WIndows</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Mac/Linux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files">Copying files</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Mac/Linux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Mac/Linux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">WIndows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Mac/Linux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Windows</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table">Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table">Table</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

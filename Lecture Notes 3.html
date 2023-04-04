@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Numbers &#8212; Python lecture notes</title>
+    <title>Lecture notes 3 &#8212; Python lecture notes</title>
   
   
   
@@ -65,6 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Lecture Notes 3';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lecture notes 4" href="Lecture%20Notes%204.html" />
     <link rel="prev" title="Lab: Command-line solutions" href="solutions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -157,16 +158,13 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%201.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%201.html">Lecture notes 1</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%202.html">Command line basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%202.html">Lecture notes 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cmdlab.html">Lab:Command-line exercise</a></li>
 <li class="toctree-l1"><a class="reference internal" href="solutions.html">Lab: Command-line solutions</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Numbers</a></li>
-
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture notes 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%204.html">Lecture notes 4</a></li>
 </ul>
 
     </div>
@@ -350,7 +348,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Numbers</h1>
+    <h1>Lecture notes 3</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -360,13 +358,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Numbers</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">dictionaries</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate">evaluate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numbers">Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate">evaluate</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -377,8 +374,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="numbers">
-<h1>Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-notes-3">
+<h1>Lecture notes 3<a class="headerlink" href="#lecture-notes-3" title="Permalink to this headline">#</a></h1>
+<section id="numbers">
+<h2>Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">#</a></h2>
 <p>Example: suppose you have a recepe which requires “red” milk, and you only have “green” milk, how much milk do you have to replace with cream to get the same fat content. With required volume <span class="math notranslate nohighlight">\(v\)</span> and replaced volume <span class="math notranslate nohighlight">\(x\)</span> we have a fat-balance equation</p>
 <div class="math notranslate nohighlight">
 \[1.5\% (v - x) + 40 \% x = 3\% v\]</div>
@@ -444,7 +443,7 @@ document.write(`
 </div>
 </section>
 <section id="strings">
-<h1>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">#</a></h1>
+<h2>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;It&#39;s time&quot;</span>
@@ -621,7 +620,7 @@ world
 </div>
 </section>
 <section id="lists">
-<h1>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">#</a></h1>
+<h2>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colours</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hearts&#39;</span><span class="p">,</span> <span class="s1">&#39;spades&#39;</span><span class="p">,</span> <span class="s1">&#39;diamonds&#39;</span><span class="p">,</span> <span class="s1">&#39;clubs&#39;</span><span class="p">]</span>
@@ -800,7 +799,7 @@ world
 </div>
 </section>
 <section id="dictionaries">
-<h1>dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">#</a></h1>
+<h2>dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newdict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
@@ -870,9 +869,10 @@ world
 </div>
 </section>
 <section id="evaluate">
-<h1>evaluate<a class="headerlink" href="#evaluate" title="Permalink to this headline">#</a></h1>
+<h2>evaluate<a class="headerlink" href="#evaluate" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://codechalleng.es">https://codechalleng.es</a></p>
 <p>sign up for a trial account</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -912,6 +912,15 @@ world
         <p class="prev-next-title">Lab: Command-line solutions</p>
       </div>
     </a>
+    <a class="right-next"
+       href="Lecture%20Notes%204.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture notes 4</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -927,13 +936,12 @@ world
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Numbers</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">dictionaries</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate">evaluate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numbers">Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate">evaluate</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
