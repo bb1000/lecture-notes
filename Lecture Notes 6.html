@@ -358,7 +358,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh-keys">ssh keys</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-github-account">Setting up your github account</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clonig-the-repository">Clonig the repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-the-repository">Cloning the repository</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-initial-file-booklist-txt">Create an initial file <code class="docutils literal notranslate"><span class="pre">booklist.txt</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-status-according-to-git">What is the status according to git?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tell-git-to-track-booklist-txt">Tell git to track <code class="docutils literal notranslate"><span class="pre">booklist.txt</span></code></a></li>
@@ -442,8 +442,8 @@ lll@bat
 <p>Copy-paste the public key (content of <code class="docutils literal notranslate"><span class="pre">id_rsa.pub</span></code>) to the <code class="docutils literal notranslate"><span class="pre">Key</span></code> field</p>
 <p><img alt="boo" src="_images/add.png" /></p>
 </section>
-<section id="clonig-the-repository">
-<h3>Clonig the repository<a class="headerlink" href="#clonig-the-repository" title="Permalink to this headline">#</a></h3>
+<section id="cloning-the-repository">
+<h3>Cloning the repository<a class="headerlink" href="#cloning-the-repository" title="Permalink to this headline">#</a></h3>
 <p>Now we can clone the repository from KTH Github</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@gits-15.sys.kth.se:BB1000/git-2023-04-19.git
 Cloning into &#39;git-2023-04-19&#39;...
@@ -465,6 +465,8 @@ warning: You appear to have cloned an empty repository.
 <h3>Create an initial file <code class="docutils literal notranslate"><span class="pre">booklist.txt</span></code><a class="headerlink" href="#create-an-initial-file-booklist-txt" title="Permalink to this headline">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ls
 booklist.txt
+$ cat booklist.txt 
+Harry Potter, J.K. Rowling
 </pre></div>
 </div>
 </section>
@@ -506,16 +508,15 @@ Changes to be committed:
  create mode 100644 booklist.txt
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log
-commit 803036a8d643fc482189a28542bac64917130574 (HEAD -&gt; main)
-Author: Olav Vahtras &lt;vahtras@kth.se&gt;
+<pre>
+$ git log
+commit 803036a8d643fc482189a28542bac64917130574 (HEAD -> main)
+Author: Olav Vahtras <vahtras@kth.se>
 Date:   Tue Apr 18 16:26:26 2023 +0200
 
     Starting a booklist
     
-</pre></div>
-</div>
-</section>
+</pre></section>
 <section id="get-information-of-the-remote-repositories">
 <h3>Get information of the remote repositories<a class="headerlink" href="#get-information-of-the-remote-repositories" title="Permalink to this headline">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote
@@ -528,6 +529,7 @@ origin	git@gits-15.sys.kth.se:BB1000/git-2023-04-19.git (push)
 </section>
 <section id="backup-the-new-changes-to-github">
 <h3>Backup the new changes to Github<a class="headerlink" href="#backup-the-new-changes-to-github" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> takes two arguments, the name associated with the repository and the branch name involved. Here the changes in the local branch <code class="docutils literal notranslate"><span class="pre">main</span></code> will be copied to the remote’s branch with the same name</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push  origin main
 Enumerating objects: 3, done.
 
@@ -539,15 +541,14 @@ To gits-15.sys.kth.se:BB1000/git-2023-04-19.git
 </pre></div>
 </div>
 <p>Note that there is a new branch <code class="docutils literal notranslate"><span class="pre">origin/main</span></code> associated with the remote repository (KTH Github)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log
-commit 803036a8d643fc482189a28542bac64917130574 (HEAD -&gt; main, origin/main)
-Author: Olav Vahtras &lt;vahtras@kth.se&gt;
+<pre>
+$ git log
+commit 803036a8d643fc482189a28542bac64917130574 <span style="background-color: yellow;">(HEAD -> main, origin/main)</span>
+Author: Olav Vahtras <vahtras@kth.se>
 Date:   Tue Apr 18 16:26:26 2023 +0200
 
     Starting a booklist
-</pre></div>
-</div>
-</section>
+</pre></section>
 <section id="add-a-second-book">
 <h3>Add a second book<a class="headerlink" href="#add-a-second-book" title="Permalink to this headline">#</a></h3>
 <p>Assuming work on another computer: Editing the file <code class="docutils literal notranslate"><span class="pre">booklist.txt</span></code></p>
@@ -562,6 +563,7 @@ $ git commit -m &#39;Add second book&#39;
 </section>
 <section id="backup-to-remote-repository">
 <h3>Backup to remote repository<a class="headerlink" href="#backup-to-remote-repository" title="Permalink to this headline">#</a></h3>
+<p>When there is only one defined remote and one branch <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> without arguments will try to use those</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
@@ -578,23 +580,22 @@ nothing to commit, working tree clean
 
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline --all
-1df3614 (HEAD -&gt; main, origin/main, origin/HEAD) Add second book
+<pre>
+$ git log --oneline --all
+1df3614 <span style="background-color: yellow;">(HEAD -> main, origin/main, origin/HEAD) Add second book</span>
 803036a Starting a booklist
-</pre></div>
-</div>
-</section>
+</pre></section>
 <section id="include-new-changes-in-the-remote">
 <h3>Include new changes in the remote<a class="headerlink" href="#include-new-changes-in-the-remote" title="Permalink to this headline">#</a></h3>
-<p>E.g. another collaborator has contributed you have saved work from another computer</p>
+<p>E.g. another collaborator has contributed or you have saved work from another computer</p>
 <ul class="simple">
-<li><p>On the first computer the log has old information and has not been synchronized with latest changes on Github</p></li>
+<li><p>On the first computer the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> shows old information - the local repository has not been synchronized with latest changes on Github</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline --all
-803036a (HEAD -&gt; main, origin/main) Starting a booklist
+<pre>
+$ git log --oneline --all
+803036a <span style="background-color: yellow;">(HEAD -> main, origin/main) Starting a booklist</span>
 (bb1000) python-lll@bat:~/git-2023-04-19
-</pre></div>
-</div>
+</pre>
 <ul class="simple">
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> to update local computer with knowledge about remote state</p></li>
 </ul>
@@ -608,26 +609,23 @@ From gits-15.sys.kth.se:BB1000/git-2023-04-19
    803036a..1df3614  main       -&gt; origin/main
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline --all
-1df3614 (origin/main) Add second book
-803036a (HEAD -&gt; main) Starting a booklist
-</pre></div>
-</div>
+<pre>
+$ git log --oneline --all
+1df3614 <span style="background-color: yellow;">(origin/main) Add second book</span>
+803036a <span style="background-color: yellow;">(HEAD -> main) Starting a booklist</span>
+</pre>
 <p>The remote branch can be merged just as with local development branches</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git merge origin/main
+<pre>
+$ git merge origin/main
 Updating 803036a..1df3614
 Fast-forward
  booklist.txt | 1 +
  1 file changed, 1 insertion(+)
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline --all
-1df3614 (HEAD -&gt; main, origin/main) Add second book
+</pre><pre>
+$ git log --oneline --all
+1df3614 <span style="background-color: yellow;">(HEAD -> main, origin/main) Add second book</span>
 803036a Starting a booklist
-(bb1000) python-lll@bat:~/git-2023-04-19
-</pre></div>
-</div>
-</section>
+</pre></section>
 <section id="fetch-merge-vs-pull">
 <h3>Fetch/merge vs pull<a class="headerlink" href="#fetch-merge-vs-pull" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
@@ -651,13 +649,12 @@ Fast-forward
  1 file changed, 1 insertion(+)
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline --all
-a167720 (HEAD -&gt; main, origin/main) Add a third book
+<pre>
+$ git log --oneline --all
+a167720 (<span style="background-color: yellow;">HEAD -> main, origin/main) Add a third book</span>
 1df3614 Add second book
 803036a Starting a booklist
-</pre></div>
-</div>
-</section>
+</pre></section>
 </section>
 </section>
 
@@ -715,7 +712,7 @@ a167720 (HEAD -&gt; main, origin/main) Add a third book
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ssh-keys">ssh keys</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-github-account">Setting up your github account</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clonig-the-repository">Clonig the repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-the-repository">Cloning the repository</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-initial-file-booklist-txt">Create an initial file <code class="docutils literal notranslate"><span class="pre">booklist.txt</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-status-according-to-git">What is the status according to git?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tell-git-to-track-booklist-txt">Tell git to track <code class="docutils literal notranslate"><span class="pre">booklist.txt</span></code></a></li>
