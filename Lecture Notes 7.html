@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lecture notes &#8212; Python lecture notes</title>
+    <title>Lecture Notes 7 &#8212; Python lecture notes</title>
   
   
   
@@ -60,10 +60,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lecture Notes 7';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Lecture notes 1" href="Lecture%20Notes%201.html" />
+    <link rel="prev" title="Lecture Notes 6" href="Lecture%20Notes%206.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -129,7 +129,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -148,13 +148,13 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Lecture notes
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%201.html">Lecture notes 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%202.html">Lecture notes 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cmdlab.html">Lab:Command-line exercise</a></li>
@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%204.html">Lecture notes 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%205.html">Lecture Notes 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%206.html">Lecture Notes 6</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%207.html">Lecture Notes 7</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture Notes 7</a></li>
 </ul>
 
     </div>
@@ -235,7 +235,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLecture Notes 7.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -265,7 +265,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/Lecture Notes 7.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -275,7 +275,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -334,7 +334,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -345,11 +347,25 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lecture notes</h1>
+    <h1>Lecture Notes 7</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-with-doctest">Testing with doctest</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-the-fat-mix">Example: the fat mix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-name-main-mean">What does <code class="docutils literal notranslate"><span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">"__main__"</span></code> mean?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-with-pytest">Testing with pytest</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -359,21 +375,210 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-notes">
-<h1>Lecture notes<a class="headerlink" href="#lecture-notes" title="Permalink to this headline">#</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%201.html">Lecture notes 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%202.html">Lecture notes 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cmdlab.html">Lab:Command-line exercise</a></li>
-<li class="toctree-l1"><a class="reference internal" href="solutions.html">Lab: Command-line solutions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%203.html">Lecture notes 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%204.html">Lecture notes 4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%205.html">Lecture Notes 5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%206.html">Lecture Notes 6</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%207.html">Lecture Notes 7</a></li>
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-notes-7">
+<h1>Lecture Notes 7<a class="headerlink" href="#lecture-notes-7" title="Permalink to this headline">#</a></h1>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">#</a></h2>
+<p>Testing frameworks are based on the <code class="docutils literal notranslate"><span class="pre">assert</span></code> statement. If the expressions following <code class="docutils literal notranslate"><span class="pre">assert</span></code> is</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span></code>: go on as usual</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span></code>: an <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> makes a program stop or can be handled by a framework (some error report)</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="kc">True</span>
+</pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">assert</span> <span class="kc">False</span>
+
+<span class="ne">AssertionError</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="testing-with-doctest">
+<h2>Testing with doctest<a class="headerlink" href="#testing-with-doctest" title="Permalink to this headline">#</a></h2>
+<section id="example-the-fat-mix">
+<h3>Example: the fat mix<a class="headerlink" href="#example-the-fat-mix" title="Permalink to this headline">#</a></h3>
+<p>Here we refactor the original code</p>
+<pre>
+import sys
+
+def main():
+
+    if len(sys.argv) > 1:
+        required_volume = float(sys.argv[1])    
+    else:
+        print("Usage:", sys.argv[0], "<required_volume>")
+        exit()
+
+    required_fat_content = 3 # in percent
+    available_fat_content = 1.5 
+    cream_fat_content = 40
+
+    <span style="background-color: yellow;">conversion_ratio = (required_fat_content - available_fat_content)/(cream_fat_content-available_fat_content)</span>
+    replaced_volume =  conversion_ratio * required_volume
+
+    print(f'Replaced volume: {replaced_volume:5.1g}')
+
+
+main()
+</pre>
+<p>by extracting the conversion_ratio calculation to a function
+and introduce a test in the docstring</p>
+<pre>
+import sys
+
+<div style="background-color: yellow;">
+def get_conversion_ratio(required_fat_content, available_fat_content, cream_fat_content):
+    """
+    Calculate fat conversion ration
+
+    >>> get_conversion_ratio(3, 3, 40)
+    0.0
+    >>> round(get_conversion_ratio(3, 1.5, 40), 2)
+    0.04
+
+    """
+    conversion_ratio = (required_fat_content - available_fat_content)/(cream_fat_content-available_fat_content) 
+    return conversion_ratio
+</div>
+
+def main():
+
+    if len(sys.argv) > 1:
+        required_volume = float(sys.argv[1])    
+    else:
+        print("Usage:", sys.argv[0], "<required_volume>")
+        exit()
+
+    required_fat_content = 3 # in percent
+    available_fat_content = 1.5 
+    cream_fat_content = 40
+
+<div style="background-color: yellow;">
+    conversion_ratio = get_conversion_ratio(required_fat_content, available_fat_content, cream_fat_content)
+</div>
+    replaced_volume =  conversion_ratio * required_volume
+
+    print(f'Replaced volume: {replaced_volume:5.1g}')
+
+print(f"__name__ = {__name__}")
+if __name__ == "__main__":
+    main()
+
+</pre>
+<ul class="simple">
+<li><p>The docstring contains a copy-paste of an interactive session in the REPL</p></li>
+<li><p>The doctest library recognizes these code snippets as tests and are executed with</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python -m doctest /home/python-lll/projects/recipe/green2red.py -v
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__name__ = green2red
+Trying:
+    get_conversion_ratio(3, 3, 40)
+Expecting:
+    0.0
+ok
+Trying:
+    round(get_conversion_ratio(3, 1.5, 40), 2)
+Expecting:
+    0.04
+ok
+2 items had no tests:
+    green2red
+    green2red.main
+1 items passed all tests:
+   2 tests in green2red.get_conversion_ratio
+2 tests in 3 items.
+2 passed and 0 failed.
+Test passed.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-does-name-main-mean">
+<h3>What does <code class="docutils literal notranslate"><span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;</span></code> mean?<a class="headerlink" href="#what-does-name-main-mean" title="Permalink to this headline">#</a></h3>
+<p>Observe how the special variable <code class="docutils literal notranslate"><span class="pre">__name__</span></code> is used</p>
+<p>The line</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>print(f&quot;__name__ = {__name__}&quot;)
+</pre></div>
+</div>
+<p>shows different output depending on context:</p>
+<ul>
+<li><p>during import (what testing libraries do)</p>
+<p><code class="docutils literal notranslate"><span class="pre">__name__</span> <span class="pre">=</span> <span class="pre">green2red</span></code></p>
+</li>
+<li><p>during normal run</p>
+<p><code class="docutils literal notranslate"><span class="pre">__name__</span> <span class="pre">=</span> <span class="pre">__main__</span></code></p>
+</li>
+</ul>
+<p>We only want to execute the full code during a normal run, therefore we have the if clause in the end</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if __name__ == &quot;__main__&quot;:
+    main()
+</pre></div>
+</div>
+</section>
+</section>
+<section id="testing-with-pytest">
+<h2>Testing with pytest<a class="headerlink" href="#testing-with-pytest" title="Permalink to this headline">#</a></h2>
+<p>An equivalent test for the <code class="docutils literal notranslate"><span class="pre">pytest</span></code> framework means to define separate test functions for these cases in a separate file. They normally contain one or sometimes more assert statements to compare calculated vs expected values</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import green2red
+
+def test_conversion_ratio_trivial():
+    calculated = green2red.get_conversion_ratio(3, 3, 40)
+    expected = 0
+    assert calculated == expected
+
+def test_conversion_ratio():
+    calculated = green2red.get_conversion_ratio(3, 1.5, 40)
+    expected = 0.039
+    assert abs(calculated - expected) &lt; .001
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>python -m pytest /home/python-lll/projects/recipe/test_green2red.py -v
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">============================= test session starts ==============================</span>
+platform linux -- Python 3.11.0, pytest-7.1.2, pluggy-1.0.0 -- /home/python-lll/miniconda3/envs/bb1000/bin/python
+cachedir: .pytest_cache
+rootdir: /home/python-lll
+plugins: anyio-3.5.0
+<span class=" -Color -Color-Bold">collecting ... </span>
+<span class=" -Color -Color-Bold">collected 2 items                                                              </span>
+
+../../projects/recipe/test_green2red.py::test_conversion_ratio_trivial <span class=" -Color -Color-Green">PASSED [ 50%]</span>
+../../projects/recipe/test_green2red.py::test_conversion_ratio <span class=" -Color -Color-Green">PASSED    [100%]</span>
+
+<span class=" -Color -Color-Green">============================== </span><span class=" -Color -Color-Bold -Color-Bold-Green">2 passed</span><span class=" -Color -Color-Green"> in 0.00s ===============================</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -404,14 +609,14 @@ document.write(`
                 <footer class="bd-footer-article">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="right-next"
-       href="Lecture%20Notes%201.html"
-       title="next page">
+    <a class="left-prev"
+       href="Lecture%20Notes%206.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lecture notes 1</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lecture Notes 6</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -419,6 +624,26 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-with-doctest">Testing with doctest</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-the-fat-mix">Example: the fat mix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-name-main-mean">What does <code class="docutils literal notranslate"><span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">"__main__"</span></code> mean?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-with-pytest">Testing with pytest</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
