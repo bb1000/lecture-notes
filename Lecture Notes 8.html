@@ -1,0 +1,779 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture Notes 8 &#8212; Python lecture notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lecture Notes 8';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Lecture Notes 7" href="Lecture%20Notes%207.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Lecture notes
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%201.html">Lecture notes 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%202.html">Lecture notes 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cmdlab.html">Lab:Command-line exercise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solutions.html">Lab: Command-line solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%203.html">Lecture notes 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%204.html">Lecture notes 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%205.html">Lecture Notes 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%206.html">Lecture Notes 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%207.html">Lecture Notes 7</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture Notes 8</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLecture Notes 8.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lecture Notes 8.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lecture Notes 8</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametrized-tests">parametrized tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-coverage">test coverage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-exercises-with-pytest-from-codechalleng-es">Sample exercises with pytest from codechalleng.es</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-driving-py">test_driving.py</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#driving-py">driving.py</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-colors-py">test_colors.py</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-notes-8">
+<h1>Lecture Notes 8<a class="headerlink" href="#lecture-notes-8" title="Permalink to this headline">#</a></h1>
+<section id="parametrized-tests">
+<h2>parametrized tests<a class="headerlink" href="#parametrized-tests" title="Permalink to this headline">#</a></h2>
+<p>Consider</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">green2red</span>
+
+<span class="k">def</span> <span class="nf">test_conversion_ratio_trivial</span><span class="p">():</span>
+    <span class="n">calculated</span> <span class="o">=</span> <span class="n">green2red</span><span class="o">.</span><span class="n">get_conversion_ratio</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">assert</span> <span class="n">calculated</span> <span class="o">==</span> <span class="n">expected</span>
+
+<span class="k">def</span> <span class="nf">test_conversion_ratio</span><span class="p">():</span>
+    <span class="n">calculated</span> <span class="o">=</span> <span class="n">green2red</span><span class="o">.</span><span class="n">get_conversion_ratio</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="mf">0.039</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">calculated</span> <span class="o">-</span> <span class="n">expected</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">.001</span>
+</pre></div>
+</div>
+<p>Instead of two testfunctions with explicit values we can introduce a parametrized test with the pytest framework</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+    <span class="s1">&#39;req, avail, cream, repl&#39;</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mf">0.039</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_conversion_ratio</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">avail</span><span class="p">,</span> <span class="n">cream</span><span class="p">,</span> <span class="n">repl</span><span class="p">):</span>
+    <span class="n">calculated</span> <span class="o">=</span> <span class="n">green2red</span><span class="o">.</span><span class="n">get_conversion_ratio</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">avail</span><span class="p">,</span> <span class="n">cream</span><span class="p">)</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="n">repl</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">calculated</span> <span class="o">-</span> <span class="n">expected</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">.001</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The test values replace the arguments in the test function</p></li>
+<li><p>Allows for generalization to testing many values without duplication code</p></li>
+</ul>
+<p>Likewise, in the leap year example we have</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">test_leap_year</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="k">assert</span> <span class="n">is_leap_year</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="gp">... </span>    <span class="k">assert</span> <span class="n">is_leap_year</span><span class="p">(</span><span class="mi">1999</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="gp">... </span>    <span class="k">assert</span> <span class="n">is_leap_year</span><span class="p">(</span><span class="mi">1998</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="gp">... </span>    <span class="k">assert</span> <span class="n">is_leap_year</span><span class="p">(</span><span class="mi">1996</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="gp">... </span>    <span class="k">assert</span> <span class="n">is_leap_year</span><span class="p">(</span><span class="mi">1900</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="gp">... </span>    <span class="k">assert</span> <span class="n">is_leap_year</span><span class="p">(</span><span class="mi">1800</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span>
+<span class="gp">... </span>    <span class="k">assert</span> <span class="n">is_leap_year</span><span class="p">(</span><span class="mi">1600</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>vs</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+    <span class="s1">&#39;year, is_leap&#39;</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1999</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1998</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1996</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1900</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1800</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">1600</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_leap_year</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">is_leap</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">is_leap_year</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">==</span> <span class="n">is_leap</span>
+</pre></div>
+</div>
+<p>Running the test suite in the latter case reports as if there had been separate test functions for each value</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">=============================</span> <span class="n">test</span> <span class="n">session</span> <span class="n">starts</span> <span class="o">==============================</span>
+
+<span class="n">test_leap_year</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_leap_year</span><span class="p">[</span><span class="mi">2000</span><span class="o">-</span><span class="kc">True</span><span class="p">]</span> <span class="n">PASSED</span>                      <span class="p">[</span> <span class="mi">14</span><span class="o">%</span><span class="p">]</span>
+<span class="n">test_leap_year</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_leap_year</span><span class="p">[</span><span class="mi">1999</span><span class="o">-</span><span class="kc">False</span><span class="p">]</span> <span class="n">PASSED</span>                     <span class="p">[</span> <span class="mi">28</span><span class="o">%</span><span class="p">]</span>
+<span class="n">test_leap_year</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_leap_year</span><span class="p">[</span><span class="mi">1998</span><span class="o">-</span><span class="kc">False</span><span class="p">]</span> <span class="n">PASSED</span>                     <span class="p">[</span> <span class="mi">42</span><span class="o">%</span><span class="p">]</span>
+<span class="n">test_leap_year</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_leap_year</span><span class="p">[</span><span class="mi">1996</span><span class="o">-</span><span class="kc">True</span><span class="p">]</span> <span class="n">PASSED</span>                      <span class="p">[</span> <span class="mi">57</span><span class="o">%</span><span class="p">]</span>
+<span class="n">test_leap_year</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_leap_year</span><span class="p">[</span><span class="mi">1900</span><span class="o">-</span><span class="kc">False</span><span class="p">]</span> <span class="n">PASSED</span>                     <span class="p">[</span> <span class="mi">71</span><span class="o">%</span><span class="p">]</span>
+<span class="n">test_leap_year</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_leap_year</span><span class="p">[</span><span class="mi">1800</span><span class="o">-</span><span class="kc">False</span><span class="p">]</span> <span class="n">PASSED</span>                     <span class="p">[</span> <span class="mi">85</span><span class="o">%</span><span class="p">]</span>
+<span class="n">test_leap_year</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_leap_year</span><span class="p">[</span><span class="mi">1600</span><span class="o">-</span><span class="kc">True</span><span class="p">]</span> <span class="n">PASSED</span>                      <span class="p">[</span><span class="mi">100</span><span class="o">%</span><span class="p">]</span>
+
+<span class="o">==============================</span> <span class="mi">7</span> <span class="n">passed</span> <span class="ow">in</span> <span class="mf">0.01</span><span class="n">s</span> <span class="o">===============================</span>
+
+</pre></div>
+</div>
+<section id="test-coverage">
+<h3>test coverage<a class="headerlink" href="#test-coverage" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>used to measure how well code is tested</p></li>
+<li><p>it requies an addition module, a pytest plugin</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install pytest-cov
+</pre></div>
+</div>
+<p>Now additional options are reported</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pytest -v test_leap_year.py --cov leap_year 
+---------- coverage: platform linux, python 3.11.0-final-0 -----------
+Name           Stmts   Miss  Cover
+----------------------------------
+leap_year.py       4      0   100%
+----------------------------------
+TOTAL              4      0   100%
+
+</pre></div>
+</div>
+</section>
+</section>
+<section id="sample-exercises-with-pytest-from-codechalleng-es">
+<h2>Sample exercises with pytest from <a class="reference external" href="http://codechalleng.es">codechalleng.es</a><a class="headerlink" href="#sample-exercises-with-pytest-from-codechalleng-es" title="Permalink to this headline">#</a></h2>
+<p>The tests contains pytest builtin tools,</p>
+<ul class="simple">
+<li><p>during the tests pytest captures output from e.g. the print functions</p></li>
+<li><p>in the test, it is possible to retrieve the printed text with the <a class="reference external" href="https://docs.pytest.org/en/7.1.x/how-to/capture-stdout-stderr.html">capfd fixture</a></p></li>
+</ul>
+<section id="test-driving-py">
+<h3>test_driving.py<a class="headerlink" href="#test-driving-py" title="Permalink to this headline">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">driving</span> <span class="kn">import</span> <span class="n">allowed_driving</span>
+
+
+<span class="k">def</span> <span class="nf">test_not_allowed_to_drive</span><span class="p">(</span><span class="n">capfd</span><span class="p">):</span>
+    <span class="n">allowed_driving</span><span class="p">(</span><span class="s1">&#39;tim&#39;</span><span class="p">,</span> <span class="mi">17</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">capfd</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">output</span> <span class="o">==</span> <span class="s1">&#39;tim is not allowed to drive&#39;</span>
+
+
+<span class="k">def</span> <span class="nf">test_allowed_to_drive</span><span class="p">(</span><span class="n">capfd</span><span class="p">):</span>
+    <span class="n">allowed_driving</span><span class="p">(</span><span class="s1">&#39;bob&#39;</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">capfd</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">output</span> <span class="o">==</span> <span class="s1">&#39;bob is allowed to drive&#39;</span>
+
+
+<span class="k">def</span> <span class="nf">test_allowed_to_drive_other_name</span><span class="p">(</span><span class="n">capfd</span><span class="p">):</span>
+    <span class="n">allowed_driving</span><span class="p">(</span><span class="s1">&#39;julian&#39;</span><span class="p">,</span> <span class="mi">19</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">capfd</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">output</span> <span class="o">==</span> <span class="s1">&#39;julian is allowed to drive&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="driving-py">
+<h3><a class="reference external" href="http://driving.py">driving.py</a><a class="headerlink" href="#driving-py" title="Permalink to this headline">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MIN_DRIVING_AGE</span> <span class="o">=</span> <span class="mi">18</span>
+
+
+<span class="k">def</span> <span class="nf">allowed_driving</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print &#39;{name} is allowed to drive&#39; or &#39;{name} is not allowed to drive&#39;</span>
+<span class="sd">       checking the passed in age against the MIN_DRIVING_AGE constant&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="n">MIN_DRIVING_AGE</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> is not allowed to drive&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1"> is allowed to drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">=============================</span> <span class="n">test</span> <span class="n">session</span> <span class="n">starts</span> <span class="o">==============================</span>
+<span class="o">...</span>
+
+<span class="n">test_driving</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_not_allowed_to_drive</span> <span class="n">PASSED</span>                        <span class="p">[</span> <span class="mi">33</span><span class="o">%</span><span class="p">]</span>
+<span class="n">test_driving</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_allowed_to_drive</span> <span class="n">PASSED</span>                            <span class="p">[</span> <span class="mi">66</span><span class="o">%</span><span class="p">]</span>
+<span class="n">test_driving</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_allowed_to_drive_other_name</span> <span class="n">PASSED</span>                 <span class="p">[</span><span class="mi">100</span><span class="o">%</span><span class="p">]</span>
+
+<span class="o">==============================</span> <span class="mi">3</span> <span class="n">passed</span> <span class="ow">in</span> <span class="mf">0.01</span><span class="n">s</span> <span class="o">===============================</span>
+
+</pre></div>
+</div>
+</section>
+<section id="test-colors-py">
+<h3>test_colors.py<a class="headerlink" href="#test-colors-py" title="Permalink to this headline">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="kn">import</span> <span class="n">patch</span>
+
+<span class="kn">from</span> <span class="nn">colors</span> <span class="kn">import</span> <span class="n">print_colors</span>
+
+<span class="n">NOT_VALID</span> <span class="o">=</span> <span class="s1">&#39;Not a valid color&#39;</span>
+
+
+<span class="k">def</span> <span class="nf">call_print_colors</span><span class="p">():</span>
+    <span class="c1"># some people prefer sys.exit instead of break</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">print_colors</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">SystemExit</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+
+<span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;builtins.input&quot;</span><span class="p">,</span> <span class="n">side_effect</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;quit&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_straight_quit</span><span class="p">(</span><span class="n">input_mock</span><span class="p">,</span> <span class="n">capsys</span><span class="p">):</span>
+    <span class="c1"># user only enter quit, program prints bye and breaks loop</span>
+    <span class="n">call_print_colors</span><span class="p">()</span>
+    <span class="n">actual</span> <span class="o">=</span> <span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="s1">&#39;bye&#39;</span>
+    <span class="k">assert</span> <span class="n">actual</span> <span class="o">==</span> <span class="n">expected</span>
+
+
+<span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;builtins.input&quot;</span><span class="p">,</span> <span class="n">side_effect</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;quit&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_one_valid_color_then_quit</span><span class="p">(</span><span class="n">input_mock</span><span class="p">,</span> <span class="n">capsys</span><span class="p">):</span>
+    <span class="c1"># user enters blue = valid color so print it</span>
+    <span class="c1"># then user enters quit so break out of loop = end program</span>
+    <span class="n">call_print_colors</span><span class="p">()</span>
+    <span class="n">actual</span> <span class="o">=</span> <span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="s1">&#39;blue</span><span class="se">\n</span><span class="s1">bye&#39;</span>
+    <span class="k">assert</span> <span class="n">actual</span> <span class="o">==</span> <span class="n">expected</span>
+
+
+<span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;builtins.input&quot;</span><span class="p">,</span> <span class="n">side_effect</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;quit&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_title_cased_color_is_fine_too</span><span class="p">(</span><span class="n">input_mock</span><span class="p">,</span> <span class="n">capsys</span><span class="p">):</span>
+    <span class="c1"># user enters Blue = valid color, program needs to lowercase it</span>
+    <span class="c1"># then user enters quit so break out of loop = end program</span>
+    <span class="n">call_print_colors</span><span class="p">()</span>
+    <span class="n">actual</span> <span class="o">=</span> <span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="s1">&#39;blue</span><span class="se">\n</span><span class="s1">bye&#39;</span>
+    <span class="k">assert</span> <span class="n">actual</span> <span class="o">==</span> <span class="n">expected</span>
+
+
+<span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;builtins.input&quot;</span><span class="p">,</span> <span class="n">side_effect</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;quit&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_one_invalid_color_then_quit</span><span class="p">(</span><span class="n">input_mock</span><span class="p">,</span> <span class="n">capsys</span><span class="p">):</span>
+    <span class="c1"># user enters green which is not in VALID_COLORS so continue the loop,</span>
+    <span class="c1"># user then enters quit so loop breaks (end function / program)</span>
+    <span class="n">call_print_colors</span><span class="p">()</span>
+    <span class="n">actual</span> <span class="o">=</span> <span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">NOT_VALID</span><span class="si">}</span><span class="se">\n</span><span class="s1">bye&#39;</span>
+    <span class="k">assert</span> <span class="n">actual</span> <span class="o">==</span> <span class="n">expected</span>
+
+
+<span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;builtins.input&quot;</span><span class="p">,</span> <span class="n">side_effect</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;quit&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_invalid_then_valid_color_then_quit</span><span class="p">(</span><span class="n">nput_mock</span><span class="p">,</span> <span class="n">capsys</span><span class="p">):</span>
+    <span class="c1"># white is not a valid color so continue the loop,</span>
+    <span class="c1"># then user enters red which is valid so print it, then quit</span>
+    <span class="n">call_print_colors</span><span class="p">()</span>
+    <span class="n">actual</span> <span class="o">=</span> <span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">NOT_VALID</span><span class="si">}</span><span class="se">\n</span><span class="s1">red</span><span class="se">\n</span><span class="s1">bye&#39;</span>
+    <span class="k">assert</span> <span class="n">actual</span> <span class="o">==</span> <span class="n">expected</span>
+
+
+<span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;builtins.input&quot;</span><span class="p">,</span> <span class="n">side_effect</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;quit&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_valid_then_invalid_color_then_quit</span><span class="p">(</span><span class="n">input_mock</span><span class="p">,</span> <span class="n">capsys</span><span class="p">):</span>
+    <span class="c1"># yellow is a valid color so print it, user then enters orange</span>
+    <span class="c1"># which is not a valid color so continue loop, lastly user</span>
+    <span class="c1"># enters quit so exit loop = reaching end function / program</span>
+    <span class="n">call_print_colors</span><span class="p">()</span>
+    <span class="n">actual</span> <span class="o">=</span> <span class="n">capsys</span><span class="o">.</span><span class="n">readouterr</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;yellow</span><span class="se">\n</span><span class="si">{</span><span class="n">NOT_VALID</span><span class="si">}</span><span class="se">\n</span><span class="s1">bye&#39;</span>
+    <span class="k">assert</span> <span class="n">actual</span> <span class="o">==</span> <span class="n">expected</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Here we also have the <code class="docutils literal notranslate"><span class="pre">patch</span></code> function from the unittest.mock library.</p></li>
+<li><p>It replaces defined library calls in the tested function (here <code class="docutils literal notranslate"><span class="pre">input</span></code>: save command line entry)</p></li>
+<li><p>Solution is less complicated than the tests</p></li>
+<li><p>An infinite loop asking for input is finished when the input value is quit</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VALID_COLORS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">print_colors</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;In the while loop ask the user to enter a color,</span>
+<span class="sd">       lowercase it and store it in a variable. Next check: </span>
+<span class="sd">       - if &#39;quit&#39; was entered for color, print &#39;bye&#39; and break. </span>
+<span class="sd">       - if the color is not in VALID_COLORS, print &#39;Not a valid color&#39; and continue.</span>
+<span class="sd">       - otherwise print the color in lower case.&quot;&quot;&quot;</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a color:&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">color</span> <span class="o">==</span> <span class="s1">&#39;quit&#39;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;bye&#39;</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="k">elif</span> <span class="n">color</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">VALID_COLORS</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not a valid color&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">print_colors</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">=============================</span> <span class="n">test</span> <span class="n">session</span> <span class="n">starts</span> <span class="o">==============================</span>
+<span class="o">...</span>
+
+<span class="n">test_colors</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_straight_quit</span> <span class="n">PASSED</span>                                <span class="p">[</span> <span class="mi">16</span><span class="o">%</span><span class="p">]</span>
+<span class="n">test_colors</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_one_valid_color_then_quit</span> <span class="n">PASSED</span>                    <span class="p">[</span> <span class="mi">33</span><span class="o">%</span><span class="p">]</span>
+<span class="n">test_colors</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_title_cased_color_is_fine_too</span> <span class="n">PASSED</span>                <span class="p">[</span> <span class="mi">50</span><span class="o">%</span><span class="p">]</span>
+<span class="n">test_colors</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_one_invalid_color_then_quit</span> <span class="n">PASSED</span>                  <span class="p">[</span> <span class="mi">66</span><span class="o">%</span><span class="p">]</span>
+<span class="n">test_colors</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_invalid_then_valid_color_then_quit</span> <span class="n">PASSED</span>           <span class="p">[</span> <span class="mi">83</span><span class="o">%</span><span class="p">]</span>
+<span class="n">test_colors</span><span class="o">.</span><span class="n">py</span><span class="p">::</span><span class="n">test_valid_then_invalid_color_then_quit</span> <span class="n">PASSED</span>           <span class="p">[</span><span class="mi">100</span><span class="o">%</span><span class="p">]</span>
+
+<span class="o">==============================</span> <span class="mi">6</span> <span class="n">passed</span> <span class="ow">in</span> <span class="mf">0.01</span><span class="n">s</span> <span class="o">===============================</span>
+
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lecture%20Notes%207.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lecture Notes 7</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametrized-tests">parametrized tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-coverage">test coverage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-exercises-with-pytest-from-codechalleng-es">Sample exercises with pytest from codechalleng.es</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-driving-py">test_driving.py</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#driving-py">driving.py</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-colors-py">test_colors.py</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Olav Vahtras
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

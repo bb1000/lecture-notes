@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Lecture Notes 7';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lecture Notes 8" href="Lecture%20Notes%208.html" />
     <link rel="prev" title="Lecture Notes 6" href="Lecture%20Notes%206.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -164,6 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%205.html">Lecture Notes 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%206.html">Lecture Notes 6</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture Notes 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%208.html">Lecture Notes 8</a></li>
 </ul>
 
     </div>
@@ -429,7 +431,7 @@ def main():
     available_fat_content = 1.5 
     cream_fat_content = 40
 
-    <span style="background-color: yellow;">conversion_ratio = (required_fat_content - available_fat_content)/(cream_fat_content-available_fat_content)</span>
+    <span style="color: red;background-color: beige;">conversion_ratio = (required_fat_content - available_fat_content)/(cream_fat_content-available_fat_content)</span>
     replaced_volume =  conversion_ratio * required_volume
 
     print(f'Replaced volume: {replaced_volume:5.1g}')
@@ -442,7 +444,7 @@ and introduce a test in the docstring</p>
 <pre>
 import sys
 
-<div style="background-color: yellow;">
+<div style="color: red; background-color: beige;">
 def get_conversion_ratio(required_fat_content, available_fat_content, cream_fat_content):
     """
     Calculate fat conversion ration
@@ -469,7 +471,7 @@ def main():
     available_fat_content = 1.5 
     cream_fat_content = 40
 
-<div style="background-color: yellow;">
+<div style="color: red; background-color: beige;">
     conversion_ratio = get_conversion_ratio(required_fat_content, available_fat_content, cream_fat_content)
 </div>
     replaced_volume =  conversion_ratio * required_volume
@@ -617,6 +619,15 @@ plugins: anyio-3.5.0
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Lecture Notes 6</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="Lecture%20Notes%208.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture Notes 8</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
