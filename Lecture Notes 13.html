@@ -1,0 +1,1916 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture Notes 13 &#8212; Python lecture notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lecture Notes 13';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Lecture Notes 12" href="Lecture%20Notes%2012.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Lecture notes
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%201.html">Lecture notes 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%202.html">Lecture notes 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cmdlab.html">Lab:Command-line exercise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solutions.html">Lab: Command-line solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%203.html">Lecture notes 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%204.html">Lecture notes 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%205.html">Lecture Notes 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%206.html">Lecture Notes 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%207.html">Lecture Notes 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%208.html">Lecture Notes 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%209.html">Lecture Notes 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%2010.html">Lecture Notes 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%2011.html">Lecture Notes 11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture%20Notes%2012.html">Lecture Notes 12</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture Notes 13</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLecture Notes 13.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lecture Notes 13.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lecture Notes 13</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-many-contestants-per-year">How many contestants per year?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-many-times-each-country-participated-per-year">How many times each country participated per year</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#winners">Winners?</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-notes-13">
+<h1>Lecture Notes 13<a class="headerlink" href="#lecture-notes-13" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>head contestants.csv
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year,to_country_id,to_country,performer,song,place_contest,sf_num,running_final,running_sf,place_final,points_final,place_sf,points_sf,points_tele_final,points_jury_final,points_tele_sf,points_jury_sf,composers,lyricists,lyrics,youtube_url
+1956,ch,Switzerland,Lys Assia,Refrain,2,,2,,2,,,,,,,,Georg Benz Stahl,,&quot;(Refrain d&#39;amour...)\n\nRefrain, couleur du ciel, parfum de mes vingt ans\nJardin plein de soleil où je courais enfant\nPartout je t&#39;ai cherché, mon amoureux lointain\nGuettant par les sentiers où tu prenais ma main\n\nLes jours s&#39;en sont allés et nous avons grandi\nL&#39;amour nous a blessés, le temps nous a guéris\nMais seule et sans printemps\nJe cours en vain les bois, les champs\nDis, souviens-toi nos amours d&#39;autrefois?\n\nLes années passent à tire-d&#39;aile\nEt sur les toits de mon ennui coule la pluie\nOù sont parties les caravelles, volant mon cœur\nPortant mes rêves vers ton oubli?\nJ&#39;aurais voulu que tu reviennes comme jadis\nPorter des fleurs à ma persienne\nEt ta jeunesse en mon logis\n\nRefrain, couleur de pluie, regret de mes vingt ans\nChagrin, mélancolie de n&#39;être plus enfant\nMais seule et loin de toi, par les chemins où tu n&#39;es pas\nJe vais, pleurant mes amours de vingt ans&quot;,https://youtube.com/watch?v=IyqIPvOkiRk
+1956,nl,Netherlands,Jetty Paerl,De Vogels Van Holland,2,,1,,2,,,,,,,,Cor Lemaire,Annie M. G. Schmidt,&quot;De vogels van Holland zijn zo muzikaal\nZe leren in hun prille jeugd al tierelieren\nDe merel, de lijster en de nachtegaal\nOm zo de lent&#39; in Holland goed te kunnen vieren\n\n&#39;t Is geen wonder, want nergens zijn de plassen zo blauw\nAls in Holland, mijnheer\nAls in Holland, mevrouw\n&#39;t Is geen wonder, want nergens is het gras zo vol dauw\nZijn de meisjes zo lief, zijn de meisjes zo trouw\nEn daarom zijn de vogels hier allemaal\nZo muzikaal\nZo muzikaal\nZo muzikaal\n\nDe hele wereld door heb ik vogels horen zingen\nIn het zuiden, in het westen, in het noorden\nIn vele verre landen heb ik vogels horen zingen\nZij zingen kleine liedjes zonder woorden\n\nDe Franse vogels zingen tudeludelu\nJapanse vogels zingen tudeludelu\nChinese vogels zingen tudeludelu\nMaar de vogels zingen nergens zo gelukkig en blij\nAls in Holland in het voorjaar in de wei\n\nDe vogels van Holland zijn zo muzikaal\nZe leren in hun prille jeugd al tierelieren\nDe merel, de lijster en de nachtegaal\nOm zo de lent&#39; in Holland goed te kunnen vieren\n\n&#39;t Is geen wonder, want nergens zijn de plassen zo blauw\nAls in Holland, mijnheer\nAls in Holland, mevrouw\n&#39;t Is geen wonder want nergens is het gras zo vol dauw\nZijn de meisjes zo lief, zijn de meisjes zo trouw\nEn daarom zijn de vogels hier allemaal\nZo muzikaal\nZo muzikaal\nZo muzikaal&quot;,https://youtube.com/watch?v=u45UQVGRVPA
+1956,be,Belgium,Fud Leclerc,Messieurs Les Noyés De La Seine,2,,3,,2,,,,,,,,Jacques Say;Jean Miret,Robert Montal,&quot;Messieurs les noyés de la Seine\nOuvrez-moi les portes de l&#39;eau\nJe suis fatigué d&#39;user mes semaines\nSur le pavé noir de Puteaux\n\nMessieurs les noyés de la Seine\nOuvrez-moi les portes de l&#39;eau\nJ&#39;ai tant voyagé sous son ciel de laine\nQue le vent m&#39;a brûlé la peau\n\nJe suis depuis toujours marié à la misère\nJe n&#39;ai connu l&#39;amour que sur un lit de pierre\nLe soleil pour les riches, la lune pour les gueux\nPourquoi, si tout le monde triche, jouer encore le jeu?\n\nMessieurs les noyés de la Seine\nOuvrez-moi les portes de l&#39;eau\nJe suis fatigué de n&#39;avoir pour ciel\nQue les ponts rouillés de Puteaux\n\nMessieurs les noyés de la Seine\nJ&#39;ai tant regardé les bateaux\nQue d&#39;Aubervilliers jusqu&#39;à Bourg-la-Reine\nJe porte Paris sur mon dos\n\nLa fille que j&#39;aimais ne m&#39;a jamais aimé\nLes copains que j&#39;avais m&#39;ont tous abandonné\nJe fais le tour du monde pour trouver le printemps\nMais comme la terre est ronde, ça peut durer longtemps\n\nMessieurs les noyés de la Seine\nOuvrez-moi les portes de l&#39;eau\nJe suis fatigué de voir la dégaine\nDes enfants trahis de Puteaux\n\nMessieurs les noyés de la Seine\nParis me doit bien un berceau\nJe m&#39;endormirai sans amour ni haine\nEntre ses bras de sable et d&#39;eau&quot;,https://youtube.com/watch?v=U9O3sqlyra0
+1956,de,Germany,Walter Andreas Schwarz,Im Wartesaal Zum Großen Glück,2,,4,,2,,,,,,,,Walter Andreas Schwarz,,&quot;Es gibt einen Hafen, da fährt kaum ein Schiff\nUnd wenn eines fährt, so in unbestimmte Fernen\nUnd es kommt, wenn es ankommt, von sehr weit schon her\nUnd einer steigt aus und der kommt übers Meer\nMit gläserner Fracht von den Sternen\n\nUnd man baute am Kai der Vergangenheit\nEinen Saal mit Blick auf das Meer\nUnd mit Wänden aus Träumen gegen die Wirklichkeit\nDenn die liebte man nicht sehr\n\nIm Wartesaal zum großen Glück\nDa warten viele, viele Leute\nDie warten seit gestern auf das Glück von morgen\nUnd leben mit Wünschen von übermorgen\nUnd vergessen, es ist ja noch heute\nAch... die armen, armen Leute\n\nUnd sie blickten aufs Meer und sie sahen auch das Schiff\nGerade als es abfuhr in unbestimmte Fernen\nUnd sie jagten auf Träumen hinter ihm her\nUnd sahen ihn nicht, wie er kam übers Meer\nMit gläserner Fracht von den Sternen\n\nUnd er ging am Kai der Vergangenheit vorbei\nUnd die im Saal, die liess er einfach stehn\nGing grade aus in die Wirklichkeit\nUnd da hat man ihn lächeln sehn\n\nIm Wartesaal zum großen Glück\nDa warten viele, viele Leute\nDie warten seit gestern auf das Glück von morgen\nUnd leben mit Wünschen von übermorgen\nUnd vergessen, es ist ja noch heute\nHa... die armen, armen Leute\n\nUnd es fuhren am Morgen die Fischer hinaus\nUnd es glühte der Himmel bis in unbestimmte Fernen\nUnd da kam er gegangen und ihre Netze waren leer\nDoch da holte er für sie die Sonne aus dem Meer\nUnd trug sie empor zu den Sternen\n\nUnd sie glänzte weit durch die Wirklichkeit\nUnd es tanzten die Boote im Licht\nNur im Saal am Kai der Vergangenheit\nDa sah man die Sonne nicht\n\nIm Wartesaal zum großen Glück\nDa warten viele, viele Leute\nDie warten seit gestern auf das Glück von morgen\nUnd leben mit Wünschen von übermorgen\nUnd vergessen, es ist ja noch heute\nTja... die armen Leute&quot;,https://youtube.com/watch?v=BDNARIDnmTc
+1956,fr,France,Mathé Altéry,Le Temps Perdu,2,,5,,2,,,,,,,,André Lodge,Rachèle Thoreau,&quot;Chante, carillon\nLe chant du temps perdu\nChante ta chanson à mon cœur éperdu\nMoi, je pleure celui que j&#39;aime\n\nBerce dans le soir\nMon rêve et mes sanglots\nVerse en moi l&#39;espoir de le revoir bientôt\nHâte-toi, car j&#39;attends toujours\n\nVienne le temps du bonheur\nLe temps d&#39;amour qui seul peut calmer mon cœur\n\nCoule le ruisseau\nVers la mer qui t&#39;attend\nRoule dans tes eaux toute la vie du printemps\nMoi, toujours j&#39;attends ton retour\n\nLes heures s&#39;enfuient lentement dans la nuit\nChacune d&#39;elles monotone sonne\nEt j&#39;attends le jour, imaginant toujours\nQue tu me rendras ton amour un jour\n\nChante, carillon\nChante pour mon bonheur\nChante ta chanson, si légère à mon cœur\nChante aussi pour celui que j&#39;aime\n\nBerce dans le soir\nNos étreintes d&#39;amour\nVerse en moi l&#39;espoir de le garder toujours\nChante, j&#39;oublie le temps perdu\n\nSonne, mais sans te presser\nL&#39;heure d&#39;amour qui nous retient enlacés\n\nCoule le ruisseau\nVers la mer qui t&#39;attend\nRoule dans tes eaux toute la vie du printemps\nMoi, toujours j&#39;attends ton retour&quot;,https://youtube.com/watch?v=dm1L0XyikKI
+1956,lu,Luxembourg,Michèle Arnaud,Ne Crois Pas,2,,13,,2,,,,,,,,Christian Guitreau,,&quot;Si on te dit qu&#39;t&#39;a une belle gueule\nY a pas de quoi t&#39;en vanter\nEt au lieu d&#39;faire les belles gueules\nTu f&#39;rais mieux d&#39;en profiter\n\nNe crois pas que tout&#39; ta vie\nOn t&#39;aimera pour tes beaux yeux\nCar si ta gueule fait envie\nC&#39;est qu&#39;t&#39;es jeune et rien de mieux\n\nNe crois pas, ne crois pas\nQue tu s&#39;ras toujours beau gosse\nNe crois pas, ne crois pas\nQue ta jeunesse durera\n\nTu seras comme tout le monde\nAvec le teint décati\nLe bidon en mappemonde\nEt tout&#39;s les dents desserties\n\nQuand t&#39;auras le crâne bien lisse\nLe geste mal assuré\nEt le regard en coulisse\nT&#39;iras de faire réparer\n\nNe crois pas, ne crois pas\nQue tu s&#39;ras toujours beau gosse\nNe crois pas, ne crois pas\nQue ta jeunesse durera\n\nTu t&#39;crois malin\nA vouloir jouer les insondables\nLes intouchables\nDu début jusqu&#39;à la Saint Glin-Glin\n\nC&#39;est pas sérieux\nLes Hermès, Adonis, les Hercules\nQui déambulent\nSans songer qu&#39;un jour ils seront vieux\n\nSi on te dit qu&#39;t&#39;a une belle gueule\nY a pas de quoi t&#39;en vanter\nEt au lieu d&#39;faire les belles gueules\nTu f&#39;rais mieux d&#39;en profiter\n\nNe crois pas que tout&#39; ta vie\nOn t&#39;aimera pour tes beaux yeux\nCar si ta gueule fait envie\nC&#39;est qu&#39;t&#39;es jeune et rien de mieux\n\nNe crois pas, ne crois pas\nQue tu s&#39;ras toujours beau gosse\nNe crois pas, ne crois pas\nQue ta jeunesse durera\n\nNe crois pas... ne crois pas...\nNe crois pas que ta jeunesse durera&quot;,https://youtube.com/watch?v=Pv7GJkqtNuc
+1956,it,Italy,Franca Raimondi,Aprite Le Finestre,2,,7,,2,,,,,,,,Virgilio Panzuti,Pinchi,&quot;La prima rosa rossa è già sbocciata\nE nascon timide le viole mammole\nOrmai, la prima rondine è tornata:\nNel cielo limpido comincia a volteggiar\nIl tempo bello viene ad annunciar\n\nAprite le finestre al nuovo sole\nÈ primavera, è primavera\nLasciate entrare un poco d&#39;aria pura\nCon il profumo dei giardini e i prati in fior\n\nAprite le finestre ai nuovi sogni\nBambine belle, innamorate\nÈ forse il più bel sogno che sognate\nSarà domani la felicità:\n\nNel cielo fra le nuvole d&#39;argento\nLa luna ha già fissato appuntamento\nAprite le finestre al nuovo sole\nÈ primavera, festa dell&#39;amor\n\nLa la la la la la la la la la la\nAprite le finestre al nuovo sol\n\nSul davanzale un piccolo usignolo\nDall&#39;ali tenere, le piume morbide\nHa già spiccato il timido suo volo\nE contro i vetri ha cominciato a picchiettar\nIl suo più bel messaggio vuol portar:\n\nÈ primavera, è primavera\n\nAprite le finestre ai nuovi sogni\nAlle speranze, all&#39;illusione\nLasciate entrare l&#39;ultima canzone\nChe dolcemente scenderà nel cuor\n\nNel cielo fra le nuvole d&#39;argento\nLa luna ha già fissato appuntamento\nAprite le finestre al nuovo sole\nÈ primavera, festa dell&#39;amor\n\nLa la la la la la la la la la la\nAprite le finestra al primo amor&quot;,https://youtube.com/watch?v=HHA1mC2RkKc
+1956,nl,Netherlands,Corry Brokken,Voorgoed Voorbij,2,,8,,2,,,,,,,,Jelle de Vries,,&quot;Voorgoed voorbij\nNu zijn we nooit meer samen\nM&#39;n lieveling\nWat heb ik jou gedaan?\n\nVoorgoed voorbij\nGesloten zijn je ramen\nMaar net als toen\nZie ik viooltjes staan\n\nDe hele wereld geurt\nDe lentebloesem kleurt\nAch, waarom is er ieder jaar een nieuwe mei?\nDat is voor mij voorgoed voorbij\nDe lente van mijn leven\nDat lachend getij\n&#39;t Is alles voorbij\n\nVoor jou was het maar spel\nIk weet heel goed\nJe hebt het niet anders bedoeld\nMaar ik, ik meende &#39;t wel\n&#39;k Heb het maar al te diep gevoeld\n\nDe hele wereld geurt\nDe lentebloesem kleurt\nAch, waarom is er ieder jaar een nieuwe mei?\nDat is voor mij voorgoed voorbij\nDe lente van mijn leven\nDat lachend getij\n&#39;t Is alles voorbij&quot;,https://youtube.com/watch?v=6OjNzLaifFM
+1956,be,Belgium,Mony Marc,Le Plus Beau Jour De Ma Vie,2,,10,,2,,,,,,,,Claude Alix,David Bee,&quot;Les cloches sonnent\nTout carillonne\nLe plus beau jour de ma vie\nAujourd&#39;hui je me marie\nDing dong, ding dong\n\nSi maman pleure\nC&#39;est bientôt l&#39;heure\nEt papa m&#39;offre le bras\nNous partons à petits pas\nDing dong, ding dong\n\nLes tout petits enfants me suivent gravement\nPortant ma robe sous mon voile blanc\nVoici mon Prince Charmant, il sourit tendrement\nJe m&#39;avance vers lui le cœur battant\n\nMinute brève comme en un rêve\nNos deux êtres pleins d&#39;amour\nVont être unis pour toujours\nDing dong, ding dong\n\nQuel instant émouvant\nJe suis tout étourdie\nPuis ta main sur ma main\nSimplement j&#39;ai dit &#39;oui&#39;\n\nOrgue en sourdine, tout s&#39;illumine\nLe portail est large ouvert\nNous sortons sous le ciel clair\nDing dong, ding dong\n\nOn nous admire et j&#39;entends dire\n&quot;&quot;Regardez, elle est jolie&quot;&quot;\n&quot;&quot;Comme ils sont bien assortis&quot;&quot;\nDing dong, ding dong\n\nUn doux bonheur m&#39;étreint tandis que sur ma main\nTes yeux caressent mon anneau d&#39;or fin\nL&#39;espace d&#39;un instant, je refais le serment\nDe vivre pour t&#39;aimer fidèlement\n\nLes cloches sonnent\nTout carillonne\nPour que jamais je n&#39;oublie\nLe plus beau jour de ma vie\nDing dong, ding dong&quot;,https://youtube.com/watch?v=dL139DezFwo
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;contestants.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>to_country_id</th>
+      <th>to_country</th>
+      <th>performer</th>
+      <th>song</th>
+      <th>place_contest</th>
+      <th>sf_num</th>
+      <th>running_final</th>
+      <th>running_sf</th>
+      <th>place_final</th>
+      <th>...</th>
+      <th>place_sf</th>
+      <th>points_sf</th>
+      <th>points_tele_final</th>
+      <th>points_jury_final</th>
+      <th>points_tele_sf</th>
+      <th>points_jury_sf</th>
+      <th>composers</th>
+      <th>lyricists</th>
+      <th>lyrics</th>
+      <th>youtube_url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1956</td>
+      <td>ch</td>
+      <td>Switzerland</td>
+      <td>Lys Assia</td>
+      <td>Refrain</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Georg Benz Stahl</td>
+      <td>NaN</td>
+      <td>(Refrain d'amour...)\n\nRefrain, couleur du ci...</td>
+      <td>https://youtube.com/watch?v=IyqIPvOkiRk</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1956</td>
+      <td>nl</td>
+      <td>Netherlands</td>
+      <td>Jetty Paerl</td>
+      <td>De Vogels Van Holland</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Cor Lemaire</td>
+      <td>Annie M. G. Schmidt</td>
+      <td>De vogels van Holland zijn zo muzikaal\nZe ler...</td>
+      <td>https://youtube.com/watch?v=u45UQVGRVPA</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1956</td>
+      <td>be</td>
+      <td>Belgium</td>
+      <td>Fud Leclerc</td>
+      <td>Messieurs Les Noyés De La Seine</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Jacques Say;Jean Miret</td>
+      <td>Robert Montal</td>
+      <td>Messieurs les noyés de la Seine\nOuvrez-moi le...</td>
+      <td>https://youtube.com/watch?v=U9O3sqlyra0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1956</td>
+      <td>de</td>
+      <td>Germany</td>
+      <td>Walter Andreas Schwarz</td>
+      <td>Im Wartesaal Zum Großen Glück</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Walter Andreas Schwarz</td>
+      <td>NaN</td>
+      <td>Es gibt einen Hafen, da fährt kaum ein Schiff\...</td>
+      <td>https://youtube.com/watch?v=BDNARIDnmTc</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1956</td>
+      <td>fr</td>
+      <td>France</td>
+      <td>Mathé Altéry</td>
+      <td>Le Temps Perdu</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>André Lodge</td>
+      <td>Rachèle Thoreau</td>
+      <td>Chante, carillon\nLe chant du temps perdu\nCha...</td>
+      <td>https://youtube.com/watch?v=dm1L0XyikKI</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1598</th>
+      <td>2020</td>
+      <td>fi</td>
+      <td>Finland</td>
+      <td>Aksel Kankaanranta</td>
+      <td>Looking Back</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>We would fall asleep\nTalking 'bout our dreams...</td>
+      <td>https://youtube.com/watch?v=EgONBKFQpxE</td>
+    </tr>
+    <tr>
+      <th>1599</th>
+      <td>2020</td>
+      <td>ge</td>
+      <td>Georgia</td>
+      <td>Tornike Kipiani</td>
+      <td>Take Me As I Am</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>How do you want me to talk like an Englishman?...</td>
+      <td>https://youtube.com/watch?v=LjNK4Xywjc4</td>
+    </tr>
+    <tr>
+      <th>1600</th>
+      <td>2020</td>
+      <td>lv</td>
+      <td>Latvia</td>
+      <td>Samanta Tīna</td>
+      <td>Still Breathing</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>I will keep on going\nI will keep on running\n...</td>
+      <td>https://youtube.com/watch?v=ELr6U2fOrnE</td>
+    </tr>
+    <tr>
+      <th>1601</th>
+      <td>2020</td>
+      <td>pt</td>
+      <td>Portugal</td>
+      <td>Elisa</td>
+      <td>Medo de sentir</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Qual é a saída\nEu acho que já não sei amar\nE...</td>
+      <td>https://youtube.com/watch?v=eIZ48w4epng</td>
+    </tr>
+    <tr>
+      <th>1602</th>
+      <td>2020</td>
+      <td>ch</td>
+      <td>Switzerland</td>
+      <td>Gjon's Tears</td>
+      <td>Répondez-moi</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pourquoi la pluie\nEt les nuages aussi\nEt les...</td>
+      <td>https://youtube.com/watch?v=O9GAfFHZE-E</td>
+    </tr>
+  </tbody>
+</table>
+<p>1603 rows × 21 columns</p>
+</div></div></div>
+</div>
+<section id="how-many-contestants-per-year">
+<h2>How many contestants per year?<a class="headerlink" href="#how-many-contestants-per-year" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year_count</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">)[</span><span class="s1">&#39;to_country&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="n">year_count</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year
+1956    12
+1957    10
+1958    10
+1959    11
+1960    13
+        ..
+2016    42
+2017    42
+2018    43
+2019    41
+2020    41
+Name: to_country, Length: 65, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">year_count</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">year_count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff8c6dc83d0&gt;]
+</pre></div>
+</div>
+<img alt="_images/785db9e90b1e9f6a67d5458ae45628e706f53327fb1d8dc3153129ecaff910d2.png" src="_images/785db9e90b1e9f6a67d5458ae45628e706f53327fb1d8dc3153129ecaff910d2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !conda install -y seaborn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seaborn</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">year_count</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7ff8c5a29b50&gt;
+</pre></div>
+</div>
+<img alt="_images/a37495c6f62eb2431003a0434c4ebf000e94b40b86ddeba5ee924fca10f0b566.png" src="_images/a37495c6f62eb2431003a0434c4ebf000e94b40b86ddeba5ee924fca10f0b566.png" />
+</div>
+</div>
+</section>
+<section id="how-many-times-each-country-participated-per-year">
+<h2>How many times each country participated per year<a class="headerlink" href="#how-many-times-each-country-participated-per-year" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">country_year</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;to_country&#39;</span><span class="p">)[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">country_year</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>to_country</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>18</th>
+      <td>Germany</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>France</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>United Kingdom</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Belgium</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Netherlands</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>Switzerland</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Sweden</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Spain</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Norway</td>
+      <td>59</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Ireland</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Finland</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Austria</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Portugal</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Denmark</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Italy</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Israel</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Greece</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Luxembourg</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Cyprus</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Turkey</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Iceland</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Malta</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>Yugoslavia</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Slovenia</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Croatia</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Estonia</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Monaco</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Russia</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Poland</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Romania</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Lithuania</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Latvia</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>North Macedonia</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Bosnia &amp; Herzegovina</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Albania</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Hungary</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Belarus</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Moldova</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Ukraine</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Armenia</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Bulgaria</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Azerbaijan</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Serbia</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Georgia</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>San Marino</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Montenegro</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Czech Republic</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Slovakia</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Australia</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Andorra</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Serbia &amp; Montenegro</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Morocco</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seaborn</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">country_year</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;to_country&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7ff8c5adc790&gt;
+</pre></div>
+</div>
+<img alt="_images/a0e76ecc26c9b8600ccf5edd804110559d61d661d0cecf8af37332aabbda520c.png" src="_images/a0e76ecc26c9b8600ccf5edd804110559d61d661d0cecf8af37332aabbda520c.png" />
+</div>
+</div>
+</section>
+<section id="winners">
+<h2>Winners?<a class="headerlink" href="#winners" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>to_country_id</th>
+      <th>to_country</th>
+      <th>performer</th>
+      <th>song</th>
+      <th>place_contest</th>
+      <th>sf_num</th>
+      <th>running_final</th>
+      <th>running_sf</th>
+      <th>place_final</th>
+      <th>...</th>
+      <th>place_sf</th>
+      <th>points_sf</th>
+      <th>points_tele_final</th>
+      <th>points_jury_final</th>
+      <th>points_tele_sf</th>
+      <th>points_jury_sf</th>
+      <th>composers</th>
+      <th>lyricists</th>
+      <th>lyrics</th>
+      <th>youtube_url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1956</td>
+      <td>ch</td>
+      <td>Switzerland</td>
+      <td>Lys Assia</td>
+      <td>Refrain</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Georg Benz Stahl</td>
+      <td>NaN</td>
+      <td>(Refrain d'amour...)\n\nRefrain, couleur du ci...</td>
+      <td>https://youtube.com/watch?v=IyqIPvOkiRk</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1956</td>
+      <td>nl</td>
+      <td>Netherlands</td>
+      <td>Jetty Paerl</td>
+      <td>De Vogels Van Holland</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Cor Lemaire</td>
+      <td>Annie M. G. Schmidt</td>
+      <td>De vogels van Holland zijn zo muzikaal\nZe ler...</td>
+      <td>https://youtube.com/watch?v=u45UQVGRVPA</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1956</td>
+      <td>be</td>
+      <td>Belgium</td>
+      <td>Fud Leclerc</td>
+      <td>Messieurs Les Noyés De La Seine</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Jacques Say;Jean Miret</td>
+      <td>Robert Montal</td>
+      <td>Messieurs les noyés de la Seine\nOuvrez-moi le...</td>
+      <td>https://youtube.com/watch?v=U9O3sqlyra0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1956</td>
+      <td>de</td>
+      <td>Germany</td>
+      <td>Walter Andreas Schwarz</td>
+      <td>Im Wartesaal Zum Großen Glück</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Walter Andreas Schwarz</td>
+      <td>NaN</td>
+      <td>Es gibt einen Hafen, da fährt kaum ein Schiff\...</td>
+      <td>https://youtube.com/watch?v=BDNARIDnmTc</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1956</td>
+      <td>fr</td>
+      <td>France</td>
+      <td>Mathé Altéry</td>
+      <td>Le Temps Perdu</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>André Lodge</td>
+      <td>Rachèle Thoreau</td>
+      <td>Chante, carillon\nLe chant du temps perdu\nCha...</td>
+      <td>https://youtube.com/watch?v=dm1L0XyikKI</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 21 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">winners</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;place_final&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">winners</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>to_country_id</th>
+      <th>to_country</th>
+      <th>performer</th>
+      <th>song</th>
+      <th>place_contest</th>
+      <th>sf_num</th>
+      <th>running_final</th>
+      <th>running_sf</th>
+      <th>place_final</th>
+      <th>...</th>
+      <th>place_sf</th>
+      <th>points_sf</th>
+      <th>points_tele_final</th>
+      <th>points_jury_final</th>
+      <th>points_tele_sf</th>
+      <th>points_jury_sf</th>
+      <th>composers</th>
+      <th>lyricists</th>
+      <th>lyrics</th>
+      <th>youtube_url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>12</th>
+      <td>1957</td>
+      <td>nl</td>
+      <td>Netherlands</td>
+      <td>Corry Brokken</td>
+      <td>Net Als Toen</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Guus Jansen</td>
+      <td>Willy van Hemert</td>
+      <td>Zit niet zo suf met die eeuwige krant\nGaap ni...</td>
+      <td>https://youtube.com/watch?v=e5gLyP977ew</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>1958</td>
+      <td>fr</td>
+      <td>France</td>
+      <td>André Claveau</td>
+      <td>Dors Mon Amour</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pierre Delanoë</td>
+      <td>Hubert Giraud</td>
+      <td>Dors, mon amour\nLe soleil est encore loin du ...</td>
+      <td>https://youtube.com/watch?v=H2CQBXmgBmM</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>1959</td>
+      <td>nl</td>
+      <td>Netherlands</td>
+      <td>Teddy Scholten</td>
+      <td>Een Beetje</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Dick Schallies</td>
+      <td>Willy van Hemert</td>
+      <td>Ik wou dat je hart een kast was met een deurtj...</td>
+      <td>https://youtube.com/watch?v=DG12m8uF8nc</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>1960</td>
+      <td>fr</td>
+      <td>France</td>
+      <td>Jacqueline Boyer</td>
+      <td>Tom Pillibi</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>13.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>André Popp</td>
+      <td>Pierre Cour</td>
+      <td>Tom Pillibi a deux châteaux – le premier en Éc...</td>
+      <td>https://youtube.com/watch?v=pL2cekes0yo</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>1961</td>
+      <td>lu</td>
+      <td>Luxembourg</td>
+      <td>Jean-Claude Pascal</td>
+      <td>Nous Les Amoureux</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>14.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Jacques Datin</td>
+      <td>Maurice Vidalin</td>
+      <td>Nous, les amoureux – on voudrait nous séparer\...</td>
+      <td>https://youtube.com/watch?v=g5ZDbEBt3iY</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1354</th>
+      <td>2015</td>
+      <td>se</td>
+      <td>Sweden</td>
+      <td>Måns Zelmerlöw</td>
+      <td>Heroes</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>10.0</td>
+      <td>13.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>217.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Anton Hård af Segerstad;Joy Deb;Linnea Deb</td>
+      <td>NaN</td>
+      <td>Don't tell the gods I left a mess\nI can't und...</td>
+      <td>https://youtube.com/watch?v=5sGOwFVUU0I</td>
+    </tr>
+    <tr>
+      <th>1394</th>
+      <td>2016</td>
+      <td>ua</td>
+      <td>Ukraine</td>
+      <td>Jamala</td>
+      <td>1944</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>21.0</td>
+      <td>14.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>2.0</td>
+      <td>287.0</td>
+      <td>323.0</td>
+      <td>211.0</td>
+      <td>152.0</td>
+      <td>135.0</td>
+      <td>Jamala</td>
+      <td>NaN</td>
+      <td>When strangers are coming\nThey come to your h...</td>
+      <td>https://youtube.com/watch?v=B-rnM-MwRHY</td>
+    </tr>
+    <tr>
+      <th>1436</th>
+      <td>2017</td>
+      <td>pt</td>
+      <td>Portugal</td>
+      <td>Salvador Sobral</td>
+      <td>Amar Pelos Dois</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>11.0</td>
+      <td>9.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>370.0</td>
+      <td>376.0</td>
+      <td>382.0</td>
+      <td>197.0</td>
+      <td>173.0</td>
+      <td>Luísa Sobral</td>
+      <td>NaN</td>
+      <td>Se um dia alguém perguntar por mim\nDiz que vi...</td>
+      <td>https://youtube.com/watch?v=Qotooj7ODCM</td>
+    </tr>
+    <tr>
+      <th>1478</th>
+      <td>2018</td>
+      <td>il</td>
+      <td>Israel</td>
+      <td>Netta Barzilai</td>
+      <td>Toy</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>22.0</td>
+      <td>7.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>283.0</td>
+      <td>317.0</td>
+      <td>212.0</td>
+      <td>116.0</td>
+      <td>167.0</td>
+      <td>Doron Medalie;Jack White;Stav Beger</td>
+      <td>Doron Medalie;Stav Beger</td>
+      <td>Ree, ouch, he, hm, la\nRee, ouch, he, hm, la\n...</td>
+      <td>https://youtube.com/watch?v=84LBjXaeKk4</td>
+    </tr>
+    <tr>
+      <th>1521</th>
+      <td>2019</td>
+      <td>nl</td>
+      <td>Netherlands</td>
+      <td>Duncan Laurence</td>
+      <td>Arcade</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>12.0</td>
+      <td>16.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>280.0</td>
+      <td>261.0</td>
+      <td>237.0</td>
+      <td>140.0</td>
+      <td>140.0</td>
+      <td>Duncan de Moor;Joel Sjöö;Wouter Hardy</td>
+      <td>NaN</td>
+      <td>A broken heart is all that's left\nI'm still f...</td>
+      <td>https://youtube.com/watch?v=R3D-r4ogr7s</td>
+    </tr>
+  </tbody>
+</table>
+<p>66 rows × 21 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wins_country</span> <span class="o">=</span> <span class="n">winners</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;to_country&#39;</span><span class="p">)[</span><span class="s1">&#39;place_final&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">wins_country</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>to_country</th>
+      <th>place_final</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Ireland</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Sweden</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Luxembourg</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Netherlands</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>United Kingdom</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>France</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Israel</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Denmark</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Norway</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Ukraine</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Spain</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Austria</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Italy</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Germany</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Latvia</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Azerbaijan</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Monaco</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Greece</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Portugal</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Russia</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Serbia</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Finland</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Switzerland</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Turkey</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Estonia</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Belgium</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Yugoslavia</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seaborn</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">wins_country</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;place_final&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;to_country&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.FacetGrid at 0x7ff8c5529610&gt;
+</pre></div>
+</div>
+<img alt="_images/8cd10952d3b039279d63e5052f57de873026a7f430be0db221c91436d37b8287.png" src="_images/8cd10952d3b039279d63e5052f57de873026a7f430be0db221c91436d37b8287.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lecture%20Notes%2012.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lecture Notes 12</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-many-contestants-per-year">How many contestants per year?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-many-times-each-country-participated-per-year">How many times each country participated per year</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#winners">Winners?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Olav Vahtras
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
