@@ -368,7 +368,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterables">Iterables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timer-as-context-manager">timer as context manager</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterables">Iterables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterators">iterators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-supporting-iteration">classes supporting iteration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">generators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -382,9 +389,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lecture-notes-18">
 <h1>Lecture Notes 18<a class="headerlink" href="#lecture-notes-18" title="Permalink to this headline">#</a></h1>
-<ul class="simple">
-<li><p>timer as context managare</p></li>
-</ul>
+<section id="timer-as-context-manager">
+<h2>timer as context manager<a class="headerlink" href="#timer-as-context-manager" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
@@ -419,13 +425,18 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>World
-Time used here: 1.0003812313079834
+Time used here: 1.000225305557251
 </pre></div>
 </div>
 </div>
 </div>
+</section>
 <section id="iterables">
 <h2>Iterables<a class="headerlink" href="#iterables" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>an object that supports iteration</p></li>
+<li><p>allowed in the top a for loop</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">iter</span><span class="p">([])</span>
@@ -433,28 +444,14 @@ Time used here: 1.0003812313079834
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;list_iterator at 0x7fd6bb4c5c90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;list_iterator at 0x7f085188df00&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">iter</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">iter</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: &#39;int&#39; object is not iterable
-</pre></div>
-</div>
-</div>
-</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">iter([...])</span></code> delegates to <code class="docutils literal notranslate"><span class="pre">[...].__iter__()</span></code></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;__iter__&#39;</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">([])</span>
@@ -467,9 +464,22 @@ Time used here: 1.0003812313079834
 </div>
 </div>
 </div>
+<ul class="simple">
+<li><p>not all objectes are iterable</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iter([]) delegates to [].__iter__()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">iter</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">iter</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: &#39;int&#39; object is not iterable
 </pre></div>
 </div>
 </div>
@@ -486,6 +496,9 @@ Time used here: 1.0003812313079834
 </div>
 </div>
 </div>
+<section id="iterators">
+<h3>iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">#</a></h3>
+<p>Generate values of a sequence when called by <code class="docutils literal notranslate"><span class="pre">next</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;__next__&#39;</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="nb">iter</span><span class="p">([]))</span>  <span class="c1"># True for an iterator</span>
@@ -570,6 +583,24 @@ Time used here: 1.0003812313079834
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="classes-supporting-iteration">
+<h3>classes supporting iteration<a class="headerlink" href="#classes-supporting-iteration" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Counter</span><span class="p">:</span>
@@ -680,10 +711,10 @@ __iter__: 3
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">36</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">66</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">next</span><span class="p">(</span><span class="n">a_iterator</span><span class="p">)</span>
 
-<span class="nn">Cell In[29], line 18,</span> in <span class="ni">CounterIter.__next__</span><span class="nt">(self)</span>
+<span class="nn">Cell In[59], line 18,</span> in <span class="ni">CounterIter.__next__</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>
 <span class="ne">---&gt; </span><span class="mi">18</span> <span class="k">raise</span> <span class="ne">StopIteration</span>
@@ -693,13 +724,13 @@ __iter__: 3
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generators</span>
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+<section id="generators">
+<h3>generators<a class="headerlink" href="#generators" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>look like function</p></li>
+<li><p>has <code class="docutils literal notranslate"><span class="pre">yield</span></code> statement instead of <code class="docutils literal notranslate"><span class="pre">return</span></code></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -718,7 +749,7 @@ __iter__: 3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object g at 0x7f8e7020d970&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;generator object g at 0x7f8e701093c0&gt;
 </pre></div>
 </div>
 </div>
@@ -779,7 +810,12 @@ after yield
 </div>
 </div>
 </div>
-<p>Example: a given number of Fibonacci sequence nubmers</p>
+</section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>a given number of Fibonacci sequence nubmers</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -821,6 +857,7 @@ after yield
 </div>
 </div>
 </div>
+</section>
 </section>
 </section>
 
@@ -876,7 +913,14 @@ after yield
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterables">Iterables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timer-as-context-manager">timer as context manager</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterables">Iterables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterators">iterators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-supporting-iteration">classes supporting iteration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">generators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
